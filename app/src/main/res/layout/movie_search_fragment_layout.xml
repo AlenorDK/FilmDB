@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/movie_search_fragment_layout_recently_viewed_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/movie_search_fragment_layout_recently_viewed_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:text="@string/movie_search_fragment_layout_recently_viewed_text"
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/movie_search_fragment_recently_viewed_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="16dp" />
+
+        <TextView
+            android:id="@+id/movie_search_fragment_layout_empty_list_label"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/movie_search_fragment_layout_empty_recently_viewed_text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/movie_search_fragment_found_movies_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:visibility="gone" />
+
+</LinearLayout>

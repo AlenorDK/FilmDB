@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/playlist_content_activity_layout_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp"
+        app:theme="@style/Base.ThemeOverlay.AppCompat.Dark" />
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                app:layout_scrollFlags="scroll|snap">
+
+                <EditText
+                    android:id="@+id/playlist_content_activity_layout_description_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/playlist_content_activity_layout_button_frame"
+                    android:background="#FFF"
+                    android:enabled="false"
+                    android:padding="8dp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#000"
+                    android:visibility="gone" />
+
+                <FrameLayout
+                    android:id="@+id/playlist_content_activity_layout_button_frame"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:id="@+id/playlist_content_activity_layout_description_text_edit_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/flat_button_background_round"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_mode_edit"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/playlist_content_activity_layout_description_text_commit_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:background="@drawable/flat_button_background_round"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_commit_changes"
+                        android:visibility="gone" />
+                </FrameLayout>
+            </RelativeLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <ProgressBar
+            android:id="@+id/playlist_content_activity_layout_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/playlist_content_activity_layout_playlist"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+    </android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

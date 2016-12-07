@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00897B</color>
+    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorAccent">#E040FB</color>
+    <color name="windowColor">#F3F3F3</color>
+
+    <color name="naviItemTextColor">#000</color>
+    <color name="naviIconColor">#88000000</color>
+    <color name="naviBackgroundColor">#25000000</color>
+
+    <color name="naviHeaderTextColor">#FFFFFF</color>
+
+    <color name="loginThemeTextColor">#FFFFFF</color>
+    <color name="loginThemeLineColor">#1DE9B6</color>
+
+    <color name="colorImagePreview">#000000</color>
+
+    <color name="genreSelectedItemBackgroundColor">#77000000</color>
+    <color name="genreSelectedItemTextColor">#212121</color>
+
+    <color name="tabLayoutSelectedTextColor">#1DE9B6</color>
+    <color name="tabLayoutDefaultTextColor">#FFF</color>
+</resources>

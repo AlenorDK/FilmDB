@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="250dp"
+    android:foreground="@drawable/item_pressed_animation"
+    android:layout_margin="8dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/playlist_recycler_view_adapter_list_item_playlist_poster"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/playlist_recycler_view_adapter_list_item_playlist_poster"
+            android:background="#77000000"
+            android:paddingLeft="4dp">
+
+            <TextView
+                android:id="@+id/playlist_recycler_view_adapter_list_item_playlist_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minLines="2"
+                android:maxLines="2"
+                android:gravity="center_vertical"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:id="@+id/playlist_recycler_view_adapter_list_item_movie_count_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/playlist_recycler_view_adapter_list_item_playlist_name_label"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFF" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

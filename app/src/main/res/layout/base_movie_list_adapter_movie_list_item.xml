@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:layout_margin="8dp"
+    android:foreground="@drawable/item_pressed_animation">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/item_pressed_animation"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/top_rated_adapter_poster_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/top_rated_adapter_poster_image"
+            android:background="#77000000"
+            android:orientation="vertical"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/top_rated_adapter_title_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:minLines="2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:id="@+id/top_rated_adapter_vote_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top_rated_adapter_title_label"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#FFF" />
+
+            <TextView
+                android:id="@+id/top_rated_adapter_movie_description_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/top_rated_adapter_vote_label"
+                android:gravity="center_vertical"
+                android:maxLines="2"
+                android:minLines="2"
+                android:text="@string/base_movie_list_adapter_movie_list_item_no_description_text"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="#FFF" />
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

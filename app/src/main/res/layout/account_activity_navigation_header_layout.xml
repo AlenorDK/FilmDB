@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    android:background="@color/colorPrimary"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:paddingLeft="16dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/account_activity_navi_header_layout_avatar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:paddingBottom="8dp"
+        android:src="@drawable/default_avatar" />
+
+
+    <TextView
+        android:id="@+id/account_activity_navi_header_layout_username_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/naviHeaderTextColor"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/account_activity_navi_header_layout_adult_switch_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="6"
+            android:textColor="@color/naviHeaderTextColor"/>
+
+        <android.support.v7.widget.SwitchCompat
+            android:id="@+id/account_activity_navi_header_layout_adult_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

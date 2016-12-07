@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">FilmDB</string>
+
+    <!--LoginActivity-->
+    <string name="login_login_hint">Login</string>
+    <string name="login_username_hint">Password</string>
+    <string name="login_login_button_text">Log in</string>
+    <string name="login_guest_button_text">Guest session</string>
+    <string name="login_activity_guest_session_text"><u>Guest</u></string>
+    <string name="login_username_error">Not a valid login!</string>
+    <string name="login_password_error">Password field is empty!</string>
+
+    <!--MovieActivity-->
+    <string name="movie_activity_toolbar_menu_add_to_favorites_text">Add to favorites</string>
+    <string name="movie_activity_toolbar_menu_remove_from_favorites_text">Remove from favorites</string>
+    <string name="movie_activity_toolbar_menu_add_to_watchlist_text">Add to watchlist</string>
+    <string name="movie_activity_toolbar_menu_remove_from_watchlist_text">Remove from watchlist</string>
+    <string name="movie_activity_add_to_favorites_text">Movie is added to your favorite movies list</string>
+    <string name="movie_activity_remove_from_favorites_text">Movie is removed from your Favorites list</string>
+    <string name="movie_activity_add_to_watchlist_text">Movie is added to your watchlist</string>
+    <string name="movie_activity_remove_from_watchlist_text">Movie is removed from your watchlist</string>
+    <string name="movie_activity_toolbar_menu_add_movie_to_playlist_text">Add movie to playlist</string>
+
+    <!--PlaylistFragment-->
+    <string name="movie_list_fragment_toolbar_menu_create_new_list_text">Create new list</string>
+
+    <!--AddToPlaylistDialog-->
+    <string name="add_to_playlist_dialog_layout_new_playlist_button_text">New playlist</string>
+    <string name="add_to_playlist_dialog_layout_add_to_playlist_text">Add to playlist</string>
+
+    <!--CreatePlaylistDialog-->
+    <string name="create_playlist_dialog_layout_create_button_text">Create</string>
+    <string name="create_playlist_dialog_layout_new_playlist_text">New Playlist</string>
+    <string name="create_playlist_dialog_layout_playlist_name_hint">Name</string>
+    <string name="create_playlist_dialog_layout_playlist_description_hint">Description</string>
+
+    <!--NavigationDrawer-->
+    <string name="navigation_drawer_item_search_text">Search</string>
+    <string name="navigation_drawer_item_my_lists_text">My lists</string>
+    <string name="navigation_drawer_item_my_playlists_text">My playlists</string>
+    <string name="navigation_drawer_item_about_text">About</string>
+    <string name="navigation_drawer_item_log_out_text">Log out</string>
+
+    <!--MyListsFragment-->
+    <string name="my_lists_fragment_layout_favorites_label">Favorites</string>
+    <string name="my_lists_fragment_layout_watchlist_label">Watchlist</string>
+    <string name="my_lists_fragment_popup_menu_action_more_text">More</string>
+    <string name="my_lists_fragment_layout_more_button_text">More</string>
+    <string name="my_lists_fragment_layout_empty_favorites_text">You have no favorite movies yet</string>
+    <string name="my_lists_fragment_layout_empty_watchlist_text">You have no movies in your watchlist yet</string>
+
+    <!--AccountActivity-->
+    <string name="account_activity_open_navi_drawer_text">Open navigation drawer</string>
+    <string name="account_activity_close_navi_drawer_text">Close navigation drawer</string>
+
+    <!--MovieSearchFragment-->
+    <string name="movie_search_fragment_layout_recently_viewed_text">Recently viewed</string>
+    <string name="movie_search_fragment_layout_empty_recently_viewed_text">You have not viewed any movies yet</string>
+
+    <!--FavoriteMoviesActivity-->
+    <string name="favorite_movies_activity_toolbar_title_text">Favorite movies</string>
+
+    <!--WatchlistActivity-->
+    <string name="watchlist_activity_toolbar_title_text">Watchlist</string>
+
+    <!--MovieSortDialog-->
+    <string name="movie_sort_dialog_sort_by_text">Sort by:</string>
+
+    <!--BaseMovieListAdapter-->
+    <string name="base_movie_list_adapter_movie_list_item_no_description_text">No description available</string>
+
+    <!--PlaylistFragment-->
+    <string name="playlist_fragment_layout_empty_playlists_text">You have not created any playlists yet</string>
+
+    <!--AboutActivity-->
+    <string name="about_activity_toolbar_title_text">FilmDB</string>
+    <string name="about_activity_author_text">Author</string>
+    <string name="about_activity_author_name_text">Ilya Kleimenov</string>
+    <string name="about_activity_version_text">Version</string>
+    <string name="about_activity_current_version_text">1.0</string>
+    <string name="about_activity_powered_by_text">Powered by</string>
+    <string name="about_activity_themoviedb_link_text">www.themoviedb.com</string>
+    <string name="about_activity_thanks_text">Thanks</string>
+    <string name="about_activity_icon_thanks_text">http://www.designbolts.com for application icon</string>
+
+    <!--All application-->
+    <string name="votes_text" translatable="false">%1$.1f / 10 (%2$d votes)</string>
+    <string name="image_load_format" translatable="false">%1$s%2$s</string>
+    <string name="unable_to_connect_error">Unable to connect to server</string>
+    <string name="no_network_connection_error_text">Can not connect to server. Check your network connection</string>
+    <string name="account_activity_navi_header_adult_excluded_text">Adult excluded </string>
+    <string name="account_activity_navi_header_adult_included_text">Adult included </string>
+    <string name="favorite_movies_activity_activity_title">Favorite movies</string>
+    <string name="watchlist_activity_title">Watchlist</string>
+    <string name="account_activity_movie_search_title">Search</string>
+    <string name="account_activity_my_lists_title">My lists</string>
+    <string name="account_activity_my_playlists_title">My playlists</string>
+
+
+</resources>

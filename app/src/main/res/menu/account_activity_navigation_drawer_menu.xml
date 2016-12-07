@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/account_activity_navigation_search"
+            android:icon="@drawable/ic_search"
+            android:title="@string/navigation_drawer_item_search_text" />
+        <item
+            android:id="@+id/account_activity_navigation_my_lists"
+            android:icon="@drawable/ic_my_lists"
+            android:title="@string/navigation_drawer_item_my_lists_text" />
+        <item
+            android:id="@+id/account_activity_navigation_my_playlists"
+            android:icon="@drawable/ic_my_playlists"
+            android:title="@string/navigation_drawer_item_my_playlists_text" />
+    </group>
+    <item android:title="Other">
+        <menu>
+            <group android:checkableBehavior="none">
+                <item
+                    android:id="@+id/account_activity_navigation_about"
+                    android:icon="@drawable/ic_about"
+                    android:title="@string/navigation_drawer_item_about_text" />
+                <item
+                    android:id="@+id/account_activity_navigation_log_out"
+                    android:icon="@drawable/ic_log_out"
+                    android:title="@string/navigation_drawer_item_log_out_text" />
+            </group>
+        </menu>
+    </item>
+</menu>
