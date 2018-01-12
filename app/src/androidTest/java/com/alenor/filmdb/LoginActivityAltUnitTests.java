@@ -40,8 +40,6 @@ public class LoginActivityAltUnitTests {
     private static final String FAKE_REQUEST_TOKEN = "asdasd";
     private static final String FAKE_CORRECT_USERNAME = "qwe";
     private static final String FAKE_CORRECT_PASSWORD = "qweqqwe";
-    private static final String FAKE_INCORRECT_USERNAME = "zxczxc";
-    private static final String FAKE_INCORRECT_PASSWORD = "zxczxzzxc";
 
 
     @Test
