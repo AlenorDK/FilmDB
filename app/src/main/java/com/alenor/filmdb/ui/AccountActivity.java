@@ -195,7 +195,7 @@ public class AccountActivity extends AppCompatActivity {
                 if (isConfirmed) {
                     SharedPrefUtils.clear(AccountActivity.this);
                     logOutConfirmationDialog.dismiss();
-                    LoginActivity.start(AccountActivity.this);
+                    LoginActivityAlt.start(AccountActivity.this);
                 }
             }
         });

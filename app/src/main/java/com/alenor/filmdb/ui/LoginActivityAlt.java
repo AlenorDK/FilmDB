@@ -6,9 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,16 +20,20 @@ import com.alenor.filmdb.model.Token;
 import com.jakewharton.rxbinding.view.RxView;
 import com.jakewharton.rxbinding.widget.RxTextView;
 
+import java.util.regex.Pattern;
+
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-@SuppressWarnings("ConstantConditions")
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivityAlt extends AppCompatActivity {
+
+    private static final int CORRECT_PASSWORD_LENGTH = 6;
+    private Subscription sessionSubscription;
 
     public static void start(Context context) {
-        Intent i = new Intent(context, LoginActivity.class);
+        Intent i = new Intent(context, LoginActivityAlt.class);
         context.startActivity(i);
     }
 
@@ -40,30 +42,24 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText usernameEditText;
     private EditText passwordEditText;
-
-    private boolean isLoginCorrect;
-    private boolean isPasswordCorrect;
-
-    private Subscription sessionSubscription;
+    private Button loginButton;
+    private TextView loginInformation;
+    private TextView guestText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_activity);
+        setContentView(R.layout.login_activity_alt);
 
         if (doesSessionExist(this)) {
             AccountActivity.startActivity(this);
         }
 
-        final Button loginButton;
-        final TextView guestText;
-
-        final TextInputLayout usernameInputLayout = (TextInputLayout) findViewById(R.id.login_activity_username_layout);
-        final TextInputLayout passwordInputLayout = (TextInputLayout) findViewById(R.id.login_activity_password_layout);
-        usernameEditText = usernameInputLayout.getEditText();
-        passwordEditText = passwordInputLayout.getEditText();
-
-        loginButton = (Button) findViewById(R.id.login_activity_login_button);
+        usernameEditText = (EditText) findViewById(R.id.login_activity_alt_username_et);
+        passwordEditText = (EditText) findViewById(R.id.login_activity_alt_password_et);
+        loginButton = (Button) findViewById(R.id.login_activity_alt_login_button);
+        loginInformation = (TextView) findViewById(R.id.login_activity_alt_login_information);
+        guestText = (TextView) findViewById(R.id.login_activity_alt_guest_label);
 
         RxTextView.editorActionEvents(usernameEditText).subscribe(event -> {
             passwordEditText.requestFocus();
@@ -76,25 +72,22 @@ public class LoginActivity extends AppCompatActivity {
         RxView.clicks(loginButton).subscribe(aVoid -> {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
-
-            RxTextView.textChangeEvents(usernameEditText).subscribe(textChangeEvent -> {
-                isLoginCorrect = !TextUtils.equals(usernameEditText.getText().toString(), "");
-            });
-            RxTextView.textChangeEvents(passwordEditText).subscribe(textChangeEvent -> {
-                isPasswordCorrect = !TextUtils.equals(passwordEditText.getText().toString(), "");
-            });
-            if (isOnline()) {
-                if (isLoginCorrect && isPasswordCorrect) {
-                    logIn();
+            ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
+            if (isOnline(connectivityManager)) {
+                if (!validateLogin(usernameEditText.getText().toString())) {
+                    loginInformation.setText("Username must only contain latin letters and can not be empty");
                 } else {
-                    Snackbar.make(getCurrentFocus(), "Both fields must be filled!", Snackbar.LENGTH_SHORT).show();
+                    if (!validatePassword(passwordEditText.getText().toString())) {
+                        loginInformation.setText("Password must contain at least 6 symbols");
+                    } else {
+                        logIn();
+                    }
                 }
             } else {
-                Snackbar.make(getCurrentFocus(), R.string.no_network_connection_error_text, Snackbar.LENGTH_LONG).show();
+                loginInformation.setText("Can not connect to server. Please, check your network connection");
             }
         });
 
-        guestText = (TextView) findViewById(R.id.login_activity_guest_label);
         RxView.clicks(guestText).subscribe(aVoid -> {
             GuestMenuActivity.start(this);
         });
@@ -131,16 +124,32 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private boolean isOnline() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
-        return networkInfo != null && networkInfo.isConnectedOrConnecting();
+    public static boolean validateLogin(String login) {
+        boolean isEmpty = login.isEmpty();
+        Pattern pattern = Pattern.compile("[a-z]+", Pattern.CASE_INSENSITIVE);
+        return pattern.matcher(login).matches() && !isEmpty;
     }
 
-    private void logIn() {
+    public static boolean validatePassword(String password) {
+        boolean hasCorrectLength = password.length() >= CORRECT_PASSWORD_LENGTH;
+        boolean isEmpty = password.isEmpty();
+        return hasCorrectLength && !isEmpty;
+    }
+
+    public static boolean isOnline(ConnectivityManager cm) {
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        return networkInfo.isConnectedOrConnecting();
+    }
+
+    public static boolean doesSessionExist(Context context) {
+        String sessionId = SharedPrefUtils.getSessionId(context);
+        return sessionId != null;
+    }
+
+    public void logIn() {
+
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-
 
         MovieDBService movieDBService = MovieDBApplication.getInstance().getMovieDBService();
 
@@ -162,11 +171,9 @@ public class LoginActivity extends AppCompatActivity {
                             .subscribe(session -> {
                                 if (session != null) {
                                     String sessionId = session.getSessionId();
-
-                                    SharedPrefUtils.setSessionId(LoginActivity.this, sessionId);
-                                    SharedPrefUtils.setUsername(LoginActivity.this, username);
-                                    AccountActivity.startActivity(LoginActivity.this);
-
+                                    SharedPrefUtils.setSessionId(LoginActivityAlt.this, sessionId);
+                                    SharedPrefUtils.setUsername(LoginActivityAlt.this, username);
+                                    AccountActivity.startActivity(LoginActivityAlt.this);
                                 }
                             });
                 }
@@ -184,8 +191,4 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    private boolean doesSessionExist(Context context) {
-        String sessionId = SharedPrefUtils.getSessionId(context);
-        return sessionId != null;
-    }
 }

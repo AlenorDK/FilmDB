@@ -6,42 +6,28 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     android:orientation="vertical"
-    tools:context=".ui.LoginActivity">
+    tools:context=".ui.LoginActivityAlt">
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/login_activity_username_layout"
+    <EditText
+        android:id="@+id/login_activity_alt_username_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="200dp"
-        app:errorTextAppearance="@style/LoginTheme">
+        android:ems="10"
+        android:hint="@string/login_login_hint" />
 
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:ems="10"
-            android:hint="@string/login_login_hint" />
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/login_activity_password_layout"
+    <EditText
+        android:id="@+id/login_activity_alt_password_et"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:errorTextAppearance="@style/LoginTheme">
-
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:ems="10"
-            android:hint="@string/login_username_hint"
-            android:inputType="textPassword" />
-    </android.support.design.widget.TextInputLayout>
+        android:ems="10"
+        android:hint="@string/login_username_hint"
+        android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/login_activity_login_button"
+        android:id="@+id/login_activity_alt_login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -51,7 +37,7 @@
         android:text="@string/login_login_button_text" />
 
     <TextView
-        android:id="@+id/login_activity_guest_label"
+        android:id="@+id/login_activity_alt_guest_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -60,7 +46,7 @@
         android:textSize="14sp" />
 
     <TextView
-        android:id="@+id/login_activity_login_information"
+        android:id="@+id/login_activity_alt_login_information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
